@@ -24,7 +24,7 @@ def creation_of_observations(step=50000, max_value=1000000, max_mounth=12):
 
 def find_best_deposit(row, deposits):
     """
-    Присваивает лучший вклад набору требований, иначе None.
+    Присваивает лучший вклад набору требований, иначе 'Нет подходящего вклада'.
     """
     filtered_deposits = deposits[
         (row['Срок вклада'] >= deposits['Минимальный срок']) &
