@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Определение лучшего вклада</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        h1 {
+            color: #333;
+        }
+        form {
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            margin-top: 10px;
+        }
+        input[type="number"], select {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            box-sizing: border-box;
+        }
+        button {
+            margin-top: 20px;
+            padding: 10px 15px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .result {
+            margin-top: 20px;
+            font-size: 18px;
+            color: green;
+        }
+    </style>
+</head>
+<body>
+    <h1>Определение лучшего вклада</h1>
+    <form method="POST">
+        <label for="amount">Сумма вклада (руб.):</label>
+        <input type="number" id="amount" name="amount" required>
+
+        <label for="term">Срок вклада (месяцы):</label>
+        <input type="number" id="term" name="term" required>
+
+        <label for="replenishment">Возможность пополнения:</label>
+        <select id="replenishment" name="replenishment">
+            <option value="1">Да</option>
+            <option value="0">Нет</option>
+        </select>
+
+        <label for="withdrawal">Возможность снятия:</label>
+        <select id="withdrawal" name="withdrawal">
+            <option value="1">Да</option>
+            <option value="0">Нет</option>
+        </select>
+
+        <button type="submit">Найти лучший вклад</button>
+    </form>
+
+    {% if result %}
+    <div class="result">
+        <strong>Рекомендуемый вклад:</strong> {{ result }}
+    </div>
+    {% endif %}
+</body>
+</html>
